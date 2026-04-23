@@ -1,12 +1,5 @@
-services:       
+services:
 
-# ██████╗ ██████╗  ██████╗ ██╗    ██╗██╗      █████╗ ██████╗ ██████╗ 
-# ██╔══██╗██╔══██╗██╔═══██╗██║    ██║██║     ██╔══██╗██╔══██╗██╔══██╗
-# ██████╔╝██████╔╝██║   ██║██║ █╗ ██║██║     ███████║██████╔╝██████╔╝
-# ██╔═══╝ ██╔══██╗██║   ██║██║███╗██║██║     ██╔══██║██╔══██╗██╔══██╗
-# ██║     ██║  ██║╚██████╔╝╚███╔███╔╝███████╗██║  ██║██║  ██║██║  ██║
-# ╚═╝     ╚═╝  ╚═╝ ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═
-                              
   prowlarr:
     image: linuxserver/prowlarr:latest
     container_name: prowlarr
@@ -16,17 +9,10 @@ services:
       - ${ARRPATH}Prowlarr/backup:/data/Backup
       - ${ARRPATH}Downloads:/downloads
     ports:
-      - 9696:9696
+      - "9696:9696"
     restart: unless-stopped
     env_file:
       - '.env'
-      
-# ███████╗ ██████╗ ███╗   ██╗ █████╗ ██████╗ ██████╗ 
-# ██╔════╝██╔═══██╗████╗  ██║██╔══██╗██╔══██╗██╔══██╗
-# ███████╗██║   ██║██╔██╗ ██║███████║██████╔╝██████╔╝
-# ╚════██║██║   ██║██║╚██╗██║██╔══██║██╔══██╗██╔══██╗
-# ███████║╚██████╔╝██║ ╚████║██║  ██║██║  ██║██║  ██║
-# ╚══════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝                                                 
       
   sonarr:
     image: linuxserver/sonarr:latest
@@ -38,17 +24,10 @@ services:
       - ${ARRPATH}Sonarr/tvshows:/data/tvshows
       - ${ARRPATH}Downloads:/downloads
     ports:
-      - 8989:8989
+      - "8989:8989"
     restart: unless-stopped
     env_file:
       - '.env'
-      
-# ██████╗  █████╗ ██████╗  █████╗ ██████╗ ██████╗ 
-# ██╔══██╗██╔══██╗██╔══██╗██╔══██╗██╔══██╗██╔══██╗
-# ██████╔╝███████║██║  ██║███████║██████╔╝██████╔╝
-# ██╔══██╗██╔══██║██║  ██║██╔══██║██╔══██╗██╔══██╗
-# ██║  ██║██║  ██║██████╔╝██║  ██║██║  ██║██║  ██║
-# ╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝                                              
 
   radarr:
     image: linuxserver/radarr:latest
@@ -60,39 +39,11 @@ services:
       - ${ARRPATH}Radarr/backup:/data/Backup
       - ${ARRPATH}Downloads:/downloads
     ports:
-      - 7878:7878
+      - "7878:7878"
     restart: unless-stopped
     env_file:
       - '.env'
-      
-# ██╗     ██╗██████╗  █████╗ ██████╗ ██████╗ 
-# ██║     ██║██╔══██╗██╔══██╗██╔══██╗██╔══██╗
-# ██║     ██║██║  ██║███████║██████╔╝██████╔╝
-# ██║     ██║██║  ██║██╔══██║██╔══██╗██╔══██╗
-# ███████╗██║██████╔╝██║  ██║██║  ██║██║  ██║
-# ╚══════╝╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝
-                                             
-  lidarr:
-    image: linuxserver/lidarr:latest
-    container_name: lidarr
-    hostname: lidarr
-    volumes:
-      - ${ARRPATH}Lidarr/config:/config
-      - ${ARRPATH}Lidarr/music:/data/musicfolder
-      - ${ARRPATH}Downloads:/downloads
-    ports:
-      - 8686:8686
-    restart: unless-stopped
-    env_file:
-      - '.env'
-      
-# ██╗  ██╗ ██████╗ ███╗   ███╗ █████╗ ██████╗ ██████╗ 
-# ██║  ██║██╔═══██╗████╗ ████║██╔══██╗██╔══██╗██╔══██╗
-# ███████║██║   ██║██╔████╔██║███████║██████╔╝██████╔╝
-# ██╔══██║██║   ██║██║╚██╔╝██║██╔══██║██╔══██╗██╔══██╗
-# ██║  ██║╚██████╔╝██║ ╚═╝ ██║██║  ██║██║  ██║██║  ██║
-# ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝
-        
+
   homarr:
     container_name: homarr
     image: ghcr.io/ajnart/homarr:latest
@@ -106,36 +57,6 @@ services:
     env_file:
       - '.env'
 
-#      ██╗███████╗██╗     ██╗  ██╗   ██╗███████╗██╗███╗   ██╗
-#      ██║██╔════╝██║     ██║  ╚██╗ ██╔╝██╔════╝██║████╗  ██║
-#      ██║█████╗  ██║     ██║   ╚████╔╝ █████╗  ██║██╔██╗ ██║
-# ██   ██║██╔══╝  ██║     ██║    ╚██╔╝  ██╔══╝  ██║██║╚██╗██║
-# ╚█████╔╝███████╗███████╗███████╗██║   ██║     ██║██║ ╚████║
-#  ╚════╝ ╚══════╝╚══════╝╚══════╝╚═╝   ╚═╝     ╚═╝╚═╝  ╚═══╝
-     
-  jellyfin:
-    image: linuxserver/jellyfin
-    container_name: jellyfin
-    ports:
-      - '8096:8096/tcp'   # Jellyfin web interface
-      - '7359:7359/udp'   # Network discovery
-      - '1900:1900/udp'   # DLNA port
-    volumes:
-      - ${ARRPATH}Jellyfin/config:/config
-      - ${ARRPATH}Radarr/movies:/data/Movies
-      - ${ARRPATH}Sonarr/tvshows:/data/TVShows
-      - ${ARRPATH}Lidarr/music:/data/Music
-    env_file:
-      - '.env'
-    restart: unless-stopped
-          
-#  ██████╗ ██████╗ ██╗████████╗████████╗ ██████╗ ██████╗ ██████╗ ███████╗███╗   ██╗████████╗
-# ██╔═══██╗██╔══██╗██║╚══██╔══╝╚══██╔══╝██╔═══██╗██╔══██╗██╔══██╗██╔════╝████╗  ██║╚══██╔══╝
-# ██║   ██║██████╔╝██║   ██║      ██║   ██║   ██║██████╔╝██████╔╝█████╗  ██╔██╗ ██║   ██║   
-# ██║▄▄ ██║██╔══██╗██║   ██║      ██║   ██║   ██║██╔══██╗██╔══██╗██╔══╝  ██║╚██╗██║   ██║   
-# ╚██████╔╝██████╔╝██║   ██║      ██║   ╚██████╔╝██║  ██║██║  ██║███████╗██║ ╚████║   ██║   
-#  ╚══▀▀═╝ ╚═════╝ ╚═╝   ╚═╝      ╚═╝    ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝                                                                                          
-                                                                                             
   qbittorrent:
     image: linuxserver/qbittorrent:latest
     container_name: qbittorrent
@@ -147,14 +68,44 @@ services:
       - ${ARRPATH}qbittorrent/config:/config
       - ${ARRPATH}Downloads:/downloads
     ports:
-      - 8080:8080
-      - 6881:6881
-      - 6881:6881/udp
+      - "8080:8080"
+      - "6881:6881"
+      - "6881:6881/udp"
     environment:
       - WEBUI_PORT=8080
       - TORRENTING_PORT=6881
     healthcheck:
       start_period: 15s
+      test: true
     env_file:
       - '.env'
 
+  lidarr:
+    image: linuxserver/lidarr:latest
+    container_name: lidarr
+    hostname: lidarr
+    volumes:
+      - ${ARRPATH}Lidarr/config:/config
+      - ${ARRPATH}Lidarr/music:/data/musicfolder
+      - ${ARRPATH}Downloads:/downloads
+    ports:
+      - "8686:8686"
+    restart: unless-stopped
+    env_file:
+      - '.env'
+
+#  jellyfin:
+#    image: linuxserver/jellyfin
+#    container_name: jellyfin
+#    ports:
+#      - '8096:8096/tcp'   # Jellyfin web interface
+#      - '7359:7359/udp'   # Network discovery
+#      - '1900:1900/udp'   # DLNA port
+#    volumes:
+#      - ${ARRPATH}Jellyfin/config:/config
+#      - ${ARRPATH}Radarr/movies:/data/Movies
+#      - ${ARRPATH}Sonarr/tvshows:/data/TVShows
+#      - ${ARRPATH}Lidarr/music:/data/Music
+#    env_file:
+#      - '.env'
+#    restart: unless-stopped
