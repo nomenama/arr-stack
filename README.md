@@ -12,9 +12,9 @@ unzip youtube-39-arr-apps-1-click <br />
 Make sure you are in the same folder as docker-compose.yml and .env file, then 'up' to deploy, 'stop' and 'rm' to stop and remove the stack  :<br />
 
 ```bash
-sudo docker-compose up -d 
-sudo docker-compose stop
-sudo docker-compose rm 
+sudo docker compose up -d 
+sudo docker compose stop
+sudo docker compose rm 
 ```
 
 Chage ownership of the folder specified in .env file (by default its /media/Arr) and 
